@@ -1,57 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.IAvariesDao;
+import com.solvd.zoo.models.AvariesModel;
+
 import java.util.List;
 
-public class AvariesDao {
-    private long id;
-    private int number;
-    private List<SchedulerDao> schedulerDaoList;
-    private List<AnimalsDao> animalsDaoList;
+public class AvariesDao implements IAvariesDao {
 
-    public AvariesDao() {
+    @Override
+    public AvariesModel getEntityById(long id) {
+        return null;
     }
 
-    public AvariesDao(long id, int number, List<SchedulerDao> schedulerDaoList, List<AnimalsDao> animalsDaoList) {
-        this.id = id;
-        this.number = number;
-        this.schedulerDaoList = schedulerDaoList;
-        this.animalsDaoList = animalsDaoList;
+    @Override
+    public void saveEntity(AvariesModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(AvariesModel entity) {
+
     }
 
-    public void setId(long id) {
+    @Override
+    public void removeEntity(long id) {
 
-        this.id = id;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-
-        this.number = number;
-    }
-
-    public List<SchedulerDao> getSchedulerDaoList() {
-
-
-        return schedulerDaoList;
-    }
-
-    public void setSchedulerDaoList(List<SchedulerDao> schedulerDaoList) {
-
-        this.schedulerDaoList = schedulerDaoList;
-    }
-
-    public List<AnimalsDao> getAnimalsDaoList() {
-        return animalsDaoList;
-    }
-
-    public void setAnimalsDaoList(List<AnimalsDao> animalsDaoList) {
-        this.animalsDaoList = animalsDaoList;
     }
 }

@@ -1,30 +1,26 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
-public class ProvidersDao {
-    private long id;
-    private String name;
+import com.solvd.zoo.dao.IProvidersDao;
+import com.solvd.zoo.models.ProvidersModel;
 
-    public ProvidersDao() {
-    }
+public class ProvidersDao implements IProvidersDao {
+   @Override
+   public ProvidersModel getEntityById(long id) {
+      return null;
+   }
 
-    public ProvidersDao(long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+   @Override
+   public void saveEntity(ProvidersModel entity) {
 
-    public long getId() {
-        return id;
-    }
+   }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+   @Override
+   public void updateEntity(ProvidersModel entity) {
 
-    public String getName() {
-        return name;
-    }
+   }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+   @Override
+   public void removeEntity(long id) {
+
+   }
 }

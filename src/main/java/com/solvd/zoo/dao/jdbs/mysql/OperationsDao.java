@@ -1,42 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.IOperationsDao;
+import com.solvd.zoo.models.OperationsModel;
+
 import java.util.List;
 
-public class OperationsDao {
-    private long id;
-    private String name;
-    private List<SchedulerDao> schedulerDaoList;
+public class OperationsDao implements IOperationsDao {
 
-    public OperationsDao() {
+    @Override
+    public OperationsModel getEntityById(long id) {
+        return null;
     }
 
-    public OperationsDao(long id, String name, List<SchedulerDao> schedulerDaoList) {
-        this.id = id;
-        this.name = name;
-        this.schedulerDaoList = schedulerDaoList;
+    @Override
+    public void saveEntity(OperationsModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(OperationsModel entity) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Override
+    public void removeEntity(long id) {
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<SchedulerDao> getSchedulerDaoList() {
-        return schedulerDaoList;
-    }
-
-    public void setSchedulerDaoList(List<SchedulerDao> schedulerDaoList) {
-        this.schedulerDaoList = schedulerDaoList;
     }
 }

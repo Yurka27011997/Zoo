@@ -1,4 +1,6 @@
 package com.solvd.zoo.dao;
 
-public interface ISchedulerDao extends IBaseDao {
+import com.solvd.zoo.models.SchedulerModel;
+
+public interface ISchedulerDao extends IBaseDao <SchedulerModel> {
 }

@@ -1,42 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.IAnimalsDao;
+import com.solvd.zoo.models.AnimalsModel;
+
 import java.util.List;
 
-public class TypesOfAnimalDao {
-    private long id;
-    private String name;
-    private List<AnimalsDao> animalsDaoList;
+public class TypesOfAnimalDao implements IAnimalsDao {
 
-    public TypesOfAnimalDao() {
+    @Override
+    public AnimalsModel getEntityById(long id) {
+        return null;
     }
 
-    public TypesOfAnimalDao(long id, String name, List<AnimalsDao> animalsDaoList) {
-        this.id = id;
-        this.name = name;
-        this.animalsDaoList = animalsDaoList;
+    @Override
+    public void saveEntity(AnimalsModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(AnimalsModel entity) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Override
+    public void removeEntity(long id) {
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<AnimalsDao> getAnimalsDaoList() {
-        return animalsDaoList;
-    }
-
-    public void setAnimalsDaoList(List<AnimalsDao> animalsDaoList) {
-        this.animalsDaoList = animalsDaoList;
     }
 }

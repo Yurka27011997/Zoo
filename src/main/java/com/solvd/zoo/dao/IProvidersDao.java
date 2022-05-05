@@ -1,4 +1,6 @@
 package com.solvd.zoo.dao;
 
-public interface IProvidersDao extends IBaseDao {
+import com.solvd.zoo.models.ProvidersModel;
+
+public interface IProvidersDao extends IBaseDao <ProvidersModel> {
 }

@@ -1,52 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.ITicketsDao;
+import com.solvd.zoo.models.TicketsModel;
+
 import java.util.Date;
 
-public class TicketsDao {
-    private long id;
-    private int price;
-    private boolean isActivate;
-    private Date dateOfVisit = new Date();
+public class TicketsDao implements ITicketsDao {
 
-    public TicketsDao() {
+    @Override
+    public TicketsModel getEntityById(long id) {
+        return null;
     }
 
-    public TicketsDao(long id, int price, boolean isActivate, Date dateOfVisit) {
-        this.id = id;
-        this.price = price;
-        this.isActivate = isActivate;
-        this.dateOfVisit = dateOfVisit;
+    @Override
+    public void saveEntity(TicketsModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(TicketsModel entity) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Override
+    public void removeEntity(long id) {
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public boolean isActivate() {
-        return isActivate;
-    }
-
-    public void setActivate(boolean activate) {
-        isActivate = activate;
-    }
-
-    public Date getDateOfVisit() {
-        return dateOfVisit;
-    }
-
-    public void setDateOfVisit(Date dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
     }
 }

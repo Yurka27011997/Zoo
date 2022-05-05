@@ -1,53 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.IFoodDao;
+import com.solvd.zoo.models.FoodModel;
+
 import java.util.List;
 
-public class FoodDao {
-    private long id;
-    private String name;
-    private float weight;
-    private List<AnimalsToFoodDao> animalsToFoodDaoList;
+public class FoodDao implements IFoodDao {
 
-    public FoodDao() {
+    @Override
+    public FoodModel getEntityById(long id) {
+        return null;
     }
 
-    public FoodDao(long id, String name, float weight, List<AnimalsToFoodDao> animalsToFoodDaoList) {
-        this.id = id;
-        this.name = name;
-        this.weight = weight;
-        this.animalsToFoodDaoList = animalsToFoodDaoList;
+    @Override
+    public void saveEntity(FoodModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(FoodModel entity) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Override
+    public void removeEntity(long id) {
 
-    public String getName() {
-        return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public List<AnimalsToFoodDao> getAnimalsToFoodDaoList() {
-        return animalsToFoodDaoList;
-    }
-
-    public void setAnimalsToFoodDaoList(List<AnimalsToFoodDao> animalsToFoodDaoList) {
-        this.animalsToFoodDaoList = animalsToFoodDaoList;
-    }
-
 }

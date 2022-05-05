@@ -1,4 +1,6 @@
 package com.solvd.zoo.dao;
 
-public interface IEmployeeDao extends IBaseDao {
+import com.solvd.zoo.models.EmployeesModel;
+
+public interface IEmployeeDao extends IBaseDao <EmployeesModel> {
 }

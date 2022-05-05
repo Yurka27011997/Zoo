@@ -1,42 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.IPositionsDao;
+import com.solvd.zoo.models.PositionsModel;
+
 import java.util.List;
 
-public class PositionsDao {
-    private long id;
-    private String name;
-    private List<EmployeesDao> employeesDaoList;
+public class PositionsDao implements IPositionsDao {
 
-    public PositionsDao() {
+    @Override
+    public PositionsModel getEntityById(long id) {
+        return null;
     }
 
-    public PositionsDao(long id, String name, List<EmployeesDao> employeesDaoList) {
-        this.id = id;
-        this.name = name;
-        this.employeesDaoList = employeesDaoList;
+    @Override
+    public void saveEntity(PositionsModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(PositionsModel entity) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Override
+    public void removeEntity(long id) {
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<EmployeesDao> getEmployeeDaoList() {
-        return employeesDaoList;
-    }
-
-    public void setEmployeeDaoList(List<EmployeesDao> employeesDaoList) {
-        this.employeesDaoList = employeesDaoList;
     }
 }

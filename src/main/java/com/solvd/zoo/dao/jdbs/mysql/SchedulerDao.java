@@ -1,32 +1,29 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
+import com.solvd.zoo.dao.ISchedulerDao;
+import com.solvd.zoo.models.SchedulerModel;
+
 import java.util.Date;
 
-public class SchedulerDao {
-    private long id;
-    private Date date = new Date();
+public class SchedulerDao implements ISchedulerDao {
 
-    public SchedulerDao() {
+    @Override
+    public SchedulerModel getEntityById(long id) {
+        return null;
     }
 
-    public SchedulerDao(long id, Date date) {
-        this.id = id;
-        this.date = date;
+    @Override
+    public void saveEntity(SchedulerModel entity) {
+
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public void updateEntity(SchedulerModel entity) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Override
+    public void removeEntity(long id) {
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 }

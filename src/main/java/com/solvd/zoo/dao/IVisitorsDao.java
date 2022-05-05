@@ -1,4 +1,6 @@
 package com.solvd.zoo.dao;
 
-public interface IVisitorsDao extends IBaseDao {
+import com.solvd.zoo.models.VisitorsModel;
+
+public interface IVisitorsDao extends IBaseDao <VisitorsModel> {
 }

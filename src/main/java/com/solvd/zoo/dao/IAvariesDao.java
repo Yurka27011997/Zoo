@@ -1,4 +1,6 @@
 package com.solvd.zoo.dao;
 
-public interface IAvariesDao extends IBaseDao{
+import com.solvd.zoo.models.AvariesModel;
+
+public interface IAvariesDao extends IBaseDao <AvariesModel> {
 }
