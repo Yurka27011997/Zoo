@@ -6,12 +6,12 @@ public class TicketsModel {
     private long id;
     private int price;
     private boolean isActivate;
-    private Date dateOfVisit = new Date();
+    private String dateOfVisit;
 
     public TicketsModel() {
     }
 
-    public TicketsModel(long id, int price, boolean isActivate, Date dateOfVisit) {
+    public TicketsModel(long id, int price, boolean isActivate, String dateOfVisit) {
         this.id = id;
         this.price = price;
         this.isActivate = isActivate;
@@ -42,11 +42,11 @@ public class TicketsModel {
         isActivate = activate;
     }
 
-    public Date getDateOfVisit() {
+    public String getDateOfVisit() {
         return dateOfVisit;
     }
 
-    public void setDateOfVisit(Date dateOfVisit) {
+    public void setDateOfVisit(String dateOfVisit) {
         this.dateOfVisit = dateOfVisit;
     }
 }

@@ -8,13 +8,13 @@ import java.util.List;
 public class AnimalsModel {
     private long id;
     private String nickname;
-    private Date dateOfBirth = new Date();
+    private String dateOfBirth;
     private List<AnimalsToFoodModel> animalsToFoodModelList;
 
     public AnimalsModel() {
     }
 
-    public AnimalsModel(long id, String nickname, Date dateOfBirth, List<AnimalsToFoodModel> animalsToFoodModelList) {
+    public AnimalsModel(long id, String nickname, String dateOfBirth, List<AnimalsToFoodModel> animalsToFoodModelList) {
         this.id = id;
         this.nickname = nickname;
         this.dateOfBirth = dateOfBirth;
@@ -37,11 +37,11 @@ public class AnimalsModel {
         this.nickname = nickname;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -51,5 +51,15 @@ public class AnimalsModel {
 
     public void setAnimalsToFoodModelList(List<AnimalsToFoodModel> animalsToFoodModelList) {
         this.animalsToFoodModelList = animalsToFoodModelList;
+    }
+
+    @Override
+    public String toString() {
+        return "AnimalsModel{" +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", animalsToFoodModelList=" + animalsToFoodModelList +
+                '}';
     }
 }
