@@ -41,4 +41,13 @@ public class BreedsModel {
     public void setAnimalsModelList(List<AnimalsModel> animalsModelList) {
         this.animalsModelList = animalsModelList;
     }
+
+    @Override
+    public String toString() {
+        return "BreedsModel{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", animalsModelList= " + animalsModelList +
+                '}';
+    }
 }

@@ -52,4 +52,14 @@ public class GoodsModel {
     public void setProvidersModelList(List<ProvidersModel> providersModelList) {
         this.providersModelList = providersModelList;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsModel{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", employeesModelList= " + employeesModelList +
+                ", providersModelList= " + providersModelList +
+                '}';
+    }
 }

@@ -1,20 +1,17 @@
 package com.solvd.zoo.models;
 
-import com.solvd.zoo.dao.jdbs.mysql.AnimalsDao;
-import com.solvd.zoo.dao.jdbs.mysql.SchedulerDao;
-
 import java.util.List;
 
-public class AvariesModel {
+public class AviariesModel {
     private long id;
     private int number;
     private List<SchedulerModel> schedulerModelList;
     private List<AnimalsModel> animalsModelList;
 
-    public AvariesModel() {
+    public AviariesModel() {
     }
 
-    public AvariesModel(long id, int number, List<SchedulerModel> schedulerModelList, List<AnimalsModel> animalsModelList) {
+    public AviariesModel(long id, int number, List<SchedulerModel> schedulerModelList, List<AnimalsModel> animalsModelList) {
         this.id = id;
         this.number = number;
         this.schedulerModelList = schedulerModelList;
@@ -51,5 +48,15 @@ public class AvariesModel {
 
     public void setAnimalsModelList(List<AnimalsModel> animalsModelList) {
         this.animalsModelList = animalsModelList;
+    }
+
+    @Override
+    public String toString() {
+        return "AvariesModel{" +
+                "id= " + id +
+                ", number= " + number +
+                ", schedulerModelList= " + schedulerModelList +
+                ", animalsModelList= " + animalsModelList +
+                '}';
     }
 }

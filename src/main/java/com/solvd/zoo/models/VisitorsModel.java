@@ -61,4 +61,15 @@ public class VisitorsModel {
     public void setTicketsModelList(List<TicketsModel> ticketsModelList) {
         this.ticketsModelList = ticketsModelList;
     }
+
+    @Override
+    public String toString() {
+        return "VisitorsModel{" +
+                "id= " + id +
+                ", firstName= '" + firstName + '\'' +
+                ", lastName= '" + lastName + '\'' +
+                ", phone= '" + phone + '\'' +
+                ", ticketsModelList =" + ticketsModelList +
+                '}';
+    }
 }

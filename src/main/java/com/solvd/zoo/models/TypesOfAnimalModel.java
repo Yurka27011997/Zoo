@@ -19,26 +19,41 @@ public class TypesOfAnimalModel {
     }
 
     public long getId() {
+
         return id;
     }
 
     public void setId(long id) {
+
         this.id = id;
     }
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public List<AnimalsModel> getAnimalsModelList() {
+
         return animalsModelList;
     }
 
     public void setAnimalsModelList(List<AnimalsModel> animalsModelList) {
+
         this.animalsModelList = animalsModelList;
+    }
+
+    @Override
+    public String toString() {
+        return "TypesOfAnimalModel{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", animalsModelList= " + animalsModelList +
+                '}';
     }
 }

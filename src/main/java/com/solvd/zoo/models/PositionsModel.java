@@ -41,4 +41,13 @@ public class PositionsModel {
     public void setEmployeesModelList(List<EmployeesModel> employeesModelList) {
         this.employeesModelList = employeesModelList;
     }
+
+    @Override
+    public String toString() {
+        return "PositionsModel{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", employeesModelList= " + employeesModelList +
+                '}';
+    }
 }

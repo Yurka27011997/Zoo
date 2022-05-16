@@ -1,8 +1,8 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
-import com.solvd.zoo.dao.IBreedsDao;
+import com.solvd.zoo.dao.IAviariesDao;
+import com.solvd.zoo.models.AnimalsModel;
 import com.solvd.zoo.models.AviariesModel;
-import com.solvd.zoo.models.BreedsModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,22 +12,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BreedsDao extends AbstractDao implements IBreedsDao {
-    private static final Logger LOGGER = LogManager.getLogger(BreedsDao.class);
+public class AviariesDao extends AbstractDao implements IAviariesDao {
+    private static final Logger LOGGER = LogManager.getLogger(AviariesDao.class);
 
     @Override
-    public BreedsModel getEntityById(long id) {
-
-        BreedsModel breedsModel = new BreedsModel();
+    public AviariesModel getEntityById(long id) {
+        AviariesModel aviariesModel = new AviariesModel();
         try {
 
-            PreparedStatement pr = getPreparedStatement("SELECT * FROM breeds WHERE id = ? ");
+            PreparedStatement pr = getPreparedStatement("SELECT * FROM aviaries WHERE id = ? ");
             pr.setLong(1, id);
             ResultSet rs = pr.executeQuery();
 
             while (rs.next()) {
-                breedsModel.setId(rs.getInt("id"));
-                breedsModel.setName(rs.getString("name"));
+                aviariesModel.setId(rs.getInt("id"));
+                aviariesModel.setNumber(rs.getInt("number"));
 
             }
 
@@ -36,17 +35,17 @@ public class BreedsDao extends AbstractDao implements IBreedsDao {
         } finally {
             closeAll();
         }
-        return breedsModel;
+        return aviariesModel;
 
 
     }
 
     @Override
-    public void saveEntity(BreedsModel entity) {
+    public void saveEntity(AviariesModel entity) {
         try {
-            PreparedStatement pr = getPreparedStatement("INSERT INTO breeds (id, name) VALUES (?, ?)");
+            PreparedStatement pr = getPreparedStatement("INSERT INTO aviaries (id, number) VALUES (?, ?)");
             pr.setLong(1, entity.getId());
-            pr.setString(2, entity.getName());
+            pr.setInt(2, entity.getNumber());
             pr.executeUpdate();
 
             System.out.println("Success");
@@ -60,10 +59,10 @@ public class BreedsDao extends AbstractDao implements IBreedsDao {
     }
 
     @Override
-    public void updateEntity(BreedsModel entity) {
+    public void updateEntity(AviariesModel entity) {
         try {
-            PreparedStatement pr = getPreparedStatement("UPDATE breeds SET name = ? WHERE id = ?");
-            pr.setString(1,entity.getName());
+            PreparedStatement pr = getPreparedStatement("UPDATE aviaries SET number = ? WHERE id = ?");
+            pr.setInt(1,entity.getNumber());
             pr.setLong(2, entity.getId());
 
             pr.executeUpdate();
@@ -81,7 +80,7 @@ public class BreedsDao extends AbstractDao implements IBreedsDao {
     @Override
     public void removeEntity(long id) {
         try {
-            PreparedStatement pr = getPreparedStatement("DELETE FROM breeds WHERE id = ?");
+            PreparedStatement pr = getPreparedStatement("DELETE FROM aviaries WHERE id = ?");
             pr.setLong(1, id);
 
             pr.executeUpdate();
@@ -94,25 +93,26 @@ public class BreedsDao extends AbstractDao implements IBreedsDao {
             closeAll();
         }
 
+
     }
 
-    public List<BreedsModel> getAllBreeds() {
-        List<BreedsModel> breedsModelList = new ArrayList<>();
+    public List<AviariesModel> getAllAviaries() {
+        List<AviariesModel> aviariesModelList = new ArrayList<>();
         try {
-            PreparedStatement pr = getPreparedStatement("SELECT * FROM breeds");
+            PreparedStatement pr = getPreparedStatement("SELECT * FROM aviaries");
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                BreedsModel breedsModelToAdd = new BreedsModel();
-                breedsModelToAdd.setId(rs.getLong("id"));
-                breedsModelToAdd.setName(rs.getString("name"));
-                breedsModelList.add(breedsModelToAdd);
+                AviariesModel aviariesModelToAdd = new AviariesModel();
+                aviariesModelToAdd.setId(rs.getLong("id"));
+                aviariesModelToAdd.setNumber(rs.getInt("number"));
+                aviariesModelList.add(aviariesModelToAdd);
 
             }
-            LOGGER.info(breedsModelList.toString());
+            LOGGER.info(aviariesModelList.toString());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return breedsModelList;
+        return aviariesModelList;
     }
-}
 
+}

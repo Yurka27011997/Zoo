@@ -36,4 +36,12 @@ public class OperationsModel {
         this.schedulerModelList = schedulerModelList;
     }
 
+    @Override
+    public String toString() {
+        return "OperationsModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", schedulerModelList=" + schedulerModelList +
+                '}';
+    }
 }

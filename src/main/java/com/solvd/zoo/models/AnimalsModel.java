@@ -56,10 +56,10 @@ public class AnimalsModel {
     @Override
     public String toString() {
         return "AnimalsModel{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", animalsToFoodModelList=" + animalsToFoodModelList +
+                "id= " + id +
+                ", nickname= '" + nickname + '\'' +
+                ", dateOfBirth= " + dateOfBirth +
+                ", animalsToFoodModelList= " + animalsToFoodModelList +
                 '}';
     }
 }

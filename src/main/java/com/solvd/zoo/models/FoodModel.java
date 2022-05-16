@@ -51,4 +51,14 @@ public class FoodModel {
     public void setAnimalsToFoodModelList(List<AnimalsToFoodModel> animalsToFoodModelList) {
         this.animalsToFoodModelList = animalsToFoodModelList;
     }
+
+    @Override
+    public String toString() {
+        return "FoodModel{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", weight= " + weight +
+                ", animalsToFoodModelList= " + animalsToFoodModelList +
+                '}';
+    }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Zoo employee="Employee">
+    <id>1</id>
+    <firstName>Yurii</firstName>
+    <lastName>Hnatiuk</lastName>
+    <email>Yurii@leoni.com</email>
+    <phone>+380672214782</phone>
+</Zoo>

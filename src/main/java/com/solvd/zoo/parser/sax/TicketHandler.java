@@ -1,4 +1,4 @@
-package com.solvd.zoo.parser;
+package com.solvd.zoo.parser.sax;
 
 import com.solvd.zoo.models.TicketsModel;
 

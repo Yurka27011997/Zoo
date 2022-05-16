@@ -19,26 +19,41 @@ public class TypesOfGoodModel {
     }
 
     public long getId() {
+
         return id;
     }
 
     public void setId(long id) {
+
         this.id = id;
     }
 
     public String getName() {
+
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
     public List<GoodsModel> getGoodsModelList() {
+
         return goodsModelList;
     }
 
     public void setGoodsModelList(List<GoodsModel> goodsModelList) {
+
         this.goodsModelList = goodsModelList;
+    }
+
+    @Override
+    public String toString() {
+        return "TypesOfGoodModel{" +
+                "id= " + id +
+                ", name= '" + name + '\'' +
+                ", goodsModelList= " + goodsModelList +
+                '}';
     }
 }

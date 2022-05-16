@@ -1,167 +1,120 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 import java.sql.*;
+import java.util.ResourceBundle;
 
+import com.solvd.zoo.MyConnection;
 import com.solvd.zoo.dao.IAnimalsDao;
 import com.solvd.zoo.models.AnimalsModel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class AnimalsDao implements IAnimalsDao {
-    private static final String url = "jdbc:mysql://localhost:3306/zoo";
-    private static final String user = "root";
-    private static final String password = "1234";
+public class AnimalsDao extends AbstractDao implements IAnimalsDao {
+    private static final Logger LOGGER = LogManager.getLogger(AnimalsDao.class);
 
-    // JDBC variables for opening and managing connection
-    private static Connection con;
-    private static Statement stmt;
-    private static ResultSet rs;
 
 
     @Override
     public AnimalsModel getEntityById(long id) {
         AnimalsModel animalsModel = new AnimalsModel();
-        String query = ("SELECT id,neekname, date_of_birth FROM animals where id = " + id);
-
         try {
-            // opening database connection to MySQL server
-            con = DriverManager.getConnection(url, user, password);
 
-            // getting Statement object to execute query
-            stmt = con.createStatement();
-
-            // executing SELECT query
-            rs = stmt.executeQuery(query);
+            PreparedStatement pr = getPreparedStatement("SELECT * FROM animals WHERE id = ? ");
+            pr.setLong(1, id);
+            ResultSet rs = pr.executeQuery();
 
             while (rs.next()) {
                 animalsModel.setId(rs.getInt("id"));
                 animalsModel.setNickname(rs.getNString("neekname"));
                 animalsModel.setDateOfBirth(rs.getString("date_of_birth"));
-
-
-                }
+            }
 
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         } finally {
-            //close connection ,stmt and resultset here
-            try { con.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
-            try { stmt.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
-            try { rs.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
+            closeAll();
         }
-
-
         return animalsModel;
     }
 
     @Override
     public void saveEntity(AnimalsModel entity) {
-        String query = ("INSERT INTO animals (neekname, date_of_birth) VALUES (\"" + entity.getNickname() + "\",\"" + entity.getDateOfBirth() + "\");");
 
         try {
-            // opening database connection to MySQL server
-            con = DriverManager.getConnection(url, user, password);
+            PreparedStatement pr = getPreparedStatement("INSERT INTO animals (id, neekname, date_of_birth) VALUES (?, ?, ?)");
+            pr.setLong(1, entity.getId());
+            pr.setString(2, entity.getNickname());
+            pr.setString(3, entity.getDateOfBirth());
+            pr.executeUpdate();
 
-            // getting Statement object to execute query
-            stmt = con.createStatement();
-
-            // executing SELECT query
-            System.out.println(query);
-            stmt.executeUpdate(query);
             System.out.println("Success");
 
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         } finally {
-            //close connection ,stmt and resultset here
-            try { con.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
-            try { stmt.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
-
+            closeAll();
         }
-
 
     }
 
     @Override
     public void updateEntity(AnimalsModel entity) {
-        String query = ("UPDATE animals SET neekname = 'Fedir' WHERE (id = " + entity.getId() + ")");
 
         try {
-            // opening database connection to MySQL server
-            con = DriverManager.getConnection(url, user, password);
+            PreparedStatement pr = getPreparedStatement("UPDATE animals SET neekname = ? WHERE id = ?");
+            pr.setString(1,entity.getNickname());
+            pr.setLong(2, entity.getId());
 
-            // getting Statement object to execute query
-            stmt = con.createStatement();
+            pr.executeUpdate();
 
-            // executing SELECT query
-            System.out.println(query);
-            stmt.executeUpdate(query);
             System.out.println("Success");
 
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         } finally {
-            //close connection ,stmt and resultset here
-            try {
-                con.close();
-            } catch (SQLException se) {
-                /*can't do anything */
-            }
-            try {
-                stmt.close();
-            } catch (SQLException se) {
-                /*can't do anything */
-            }
-
-
+            closeAll();
         }
     }
 
     @Override
     public void removeEntity(long id) {
-        String query = ("DELETE FROM animals where id = " + id);
 
-        try {
-            // opening database connection to MySQL server
-            con = DriverManager.getConnection(url, user, password);
+               try {
+            PreparedStatement pr = getPreparedStatement("DELETE FROM animals WHERE id = ?");
+            pr.setLong(1, id);
 
-            // getting Statement object to execute query
-            stmt = con.createStatement();
+            pr.executeUpdate();
 
-            // executing SELECT query
-            System.out.println(query);
-            stmt.executeUpdate(query);
             System.out.println("Success");
 
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         } finally {
-            //close connection ,stmt and resultset here
-            try { con.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
-            try { stmt.close(); } catch(SQLException se)
-            {
-                /*can't do anything */
-            }
-
+            closeAll();
         }
-
-
-
-
     }
+
+    public List<AnimalsModel> getAllAnimals() {
+        List<AnimalsModel> animalsModelList = new ArrayList<>();
+        try {
+            PreparedStatement pr = getPreparedStatement("SELECT * FROM animals");
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                AnimalsModel animalsModelToAdd = new AnimalsModel();
+                animalsModelToAdd.setId(rs.getLong("id"));
+                animalsModelToAdd.setNickname(rs.getNString("neekname"));
+                animalsModelToAdd.setDateOfBirth(rs.getString("date_of_birth"));
+                animalsModelList.add(animalsModelToAdd);
+
+            }
+            LOGGER.info(animalsModelList.toString());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return animalsModelList;
+    }
+
 }

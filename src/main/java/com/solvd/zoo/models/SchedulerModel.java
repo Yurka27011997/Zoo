@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class SchedulerModel {
     private long id;
-    private Date date = new Date();
+    private String date;
 
     public SchedulerModel() {
     }
 
-    public SchedulerModel(long id, Date date) {
+    public SchedulerModel(long id, String date) {
         this.id = id;
         this.date = date;
     }
@@ -22,11 +22,11 @@ public class SchedulerModel {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
