@@ -6,6 +6,8 @@ import com.solvd.zoo.dao.jdbs.mysql.ProvidersDao;
 import java.util.List;
 
 public class GoodsModel {
+
+    private TypesOfGoodModel typesOfGoodModel;
     private long id;
     private String name;
     private List<EmployeesModel> employeesModelList;
@@ -13,7 +15,6 @@ public class GoodsModel {
 
     public GoodsModel() {
     }
-
     public GoodsModel(long id, String name, List<EmployeesModel> employeesModelList, List<ProvidersModel> providersModelList) {
         this.id = id;
         this.name = name;
@@ -52,6 +53,12 @@ public class GoodsModel {
     public void setProvidersModelList(List<ProvidersModel> providersModelList) {
         this.providersModelList = providersModelList;
     }
+    public TypesOfGoodModel getTypesOfGoodModel() {
+        return typesOfGoodModel;
+    }
+    public void setTypesOfGoodModel(TypesOfGoodModel typesOfGoodModel) {
+        this.typesOfGoodModel = typesOfGoodModel;
+    }
 
     @Override
     public String toString() {
@@ -60,6 +67,7 @@ public class GoodsModel {
                 ", name= '" + name + '\'' +
                 ", employeesModelList= " + employeesModelList +
                 ", providersModelList= " + providersModelList +
+                ", typesOfGoodModel= " + typesOfGoodModel +
                 '}';
     }
 }

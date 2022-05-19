@@ -1,8 +1,6 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
 import com.solvd.zoo.dao.IEmployeeDao;
-import com.solvd.zoo.models.AnimalsModel;
-import com.solvd.zoo.models.BreedsModel;
 import com.solvd.zoo.models.EmployeesModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -103,7 +101,7 @@ public class EmployeesDao extends AbstractDao implements IEmployeeDao {
         }
 
     }
-
+    @Override
     public List<EmployeesModel> getAllEmployees() {
         List<EmployeesModel> employeesModelList = new ArrayList<>();
         try {

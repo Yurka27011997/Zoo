@@ -11,28 +11,23 @@ public class TypesOfGoodModel {
 
     public TypesOfGoodModel() {
     }
-
     public TypesOfGoodModel(long id, String name, List<GoodsModel> goodsModelList) {
         this.id = id;
         this.name = name;
         this.goodsModelList = goodsModelList;
     }
-
     public long getId() {
 
         return id;
     }
-
     public void setId(long id) {
 
         this.id = id;
     }
-
     public String getName() {
 
         return name;
     }
-
     public void setName(String name)
     {
         this.name = name;
@@ -42,7 +37,6 @@ public class TypesOfGoodModel {
 
         return goodsModelList;
     }
-
     public void setGoodsModelList(List<GoodsModel> goodsModelList) {
 
         this.goodsModelList = goodsModelList;

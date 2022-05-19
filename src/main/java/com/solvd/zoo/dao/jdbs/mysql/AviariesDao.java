@@ -1,7 +1,6 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 
 import com.solvd.zoo.dao.IAviariesDao;
-import com.solvd.zoo.models.AnimalsModel;
 import com.solvd.zoo.models.AviariesModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -95,7 +94,7 @@ public class AviariesDao extends AbstractDao implements IAviariesDao {
 
 
     }
-
+    @Override
     public List<AviariesModel> getAllAviaries() {
         List<AviariesModel> aviariesModelList = new ArrayList<>();
         try {

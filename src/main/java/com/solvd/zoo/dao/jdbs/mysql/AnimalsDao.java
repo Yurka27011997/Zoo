@@ -1,16 +1,13 @@
 package com.solvd.zoo.dao.jdbs.mysql;
 import java.sql.*;
-import java.util.ResourceBundle;
 
-import com.solvd.zoo.MyConnection;
 import com.solvd.zoo.dao.IAnimalsDao;
 import com.solvd.zoo.models.AnimalsModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.sql.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class AnimalsDao extends AbstractDao implements IAnimalsDao {
     private static final Logger LOGGER = LogManager.getLogger(AnimalsDao.class);
@@ -96,7 +93,7 @@ public class AnimalsDao extends AbstractDao implements IAnimalsDao {
             closeAll();
         }
     }
-
+    @Override
     public List<AnimalsModel> getAllAnimals() {
         List<AnimalsModel> animalsModelList = new ArrayList<>();
         try {

@@ -22,37 +22,30 @@ public class TicketsModel {
 
         return id;
     }
-
     public void setId(long id) {
 
         this.id = id;
     }
-
     public int getPrice() {
 
         return price;
     }
-
     public void setPrice(int price) {
 
         this.price = price;
     }
-
     public boolean isActivate() {
 
         return isActivate;
     }
-
     public void setActivate(boolean activate) {
 
         isActivate = activate;
     }
-
     public String getDateOfVisit() {
 
         return dateOfVisit;
     }
-
     public void setDateOfVisit(String dateOfVisit) {
 
         this.dateOfVisit = dateOfVisit;

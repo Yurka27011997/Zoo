@@ -24,31 +24,30 @@ public class AnimalsModel {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
+
         this.id = id;
     }
-
     public String getNickname() {
+
         return nickname;
     }
-
     public void setNickname(String nickname) {
+
         this.nickname = nickname;
     }
-
     public String getDateOfBirth() {
+
         return dateOfBirth;
     }
-
     public void setDateOfBirth(String dateOfBirth) {
+
         this.dateOfBirth = dateOfBirth;
     }
-
     public List<AnimalsToFoodModel> getAnimalsToFoodModelList() {
+
         return animalsToFoodModelList;
     }
-
     public void setAnimalsToFoodModelList(List<AnimalsToFoodModel> animalsToFoodModelList) {
         this.animalsToFoodModelList = animalsToFoodModelList;
     }

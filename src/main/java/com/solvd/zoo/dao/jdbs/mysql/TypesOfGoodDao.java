@@ -88,6 +88,8 @@ public class TypesOfGoodDao extends AbstractDao implements ITypesOfGoodDao {
          closeAll();
       }
 
+
    }
+
 }
 

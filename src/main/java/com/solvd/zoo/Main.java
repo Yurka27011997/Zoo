@@ -1,23 +1,26 @@
 package com.solvd.zoo;
 
-import com.solvd.zoo.dao.jdbs.mysql.AnimalsDao;
-import com.solvd.zoo.dao.jdbs.mysql.AviariesDao;
-import com.solvd.zoo.dao.jdbs.mysql.EmployeesDao;
+import com.solvd.zoo.dao.jdbs.mysql.*;
 import com.solvd.zoo.models.AnimalsModel;
 import com.solvd.zoo.models.AviariesModel;
 import com.solvd.zoo.models.EmployeesModel;
+import com.solvd.zoo.models.TypesOfGoodModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
+
+
+         GoodsDao goodsDao = new GoodsDao();
+       goodsDao.getGoodsByType();
         //AnimalsDao
-       AnimalsDao animalsDao = new AnimalsDao();
+//       AnimalsDao animalsDao = new AnimalsDao();
 
       // AnimalsModel animalsModelGet = animalsDao.getEntityById(1);
       //  LOGGER.info(animalsModelGet.toString());
-        animalsDao.getAllAnimals();
+//        animalsDao.getAllAnimals();
 
 
 //
