@@ -1,0 +1,6 @@
+{
+  "id" : 1,
+  "nickname" : "Larik",
+  "dateOfBirth" : "03.08.2015",
+  "listOfAnimals" : [ "Tiger", "Elephant", "Mouse" ]
+}
