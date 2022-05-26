@@ -1,20 +1,47 @@
 package com.solvd.zoo;
 
+import com.solvd.zoo.dao.IAviariesDao;
 import com.solvd.zoo.dao.jdbs.mysql.*;
 import com.solvd.zoo.models.AnimalsModel;
 import com.solvd.zoo.models.AviariesModel;
 import com.solvd.zoo.models.EmployeesModel;
 import com.solvd.zoo.models.TypesOfGoodModel;
+import com.solvd.zoo.myBatis.MyBatisSQLFactory;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.Reader;
+
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception{
+        MyBatisSQLFactory factory = MyBatisSQLFactory.newInstance("myBatisConfig/mybatis_config.xml");
+        SqlSessionFactory sessionFactory = factory.getFactory();
+        try (SqlSession session = sessionFactory.openSession()){
+            IAviariesDao mapper = session.getMapper(IAviariesDao.class);
+            AviariesModel aviariesModel = mapper.getEntityById(1);
+            LOGGER.info(aviariesModel);
+        }
+        }
+//
+//        AviariesDao aviariesmapper = session.getMapper(AviariesDao.class);
+//        AviariesModel aviariesModelmapper = aviariesmapper.getEntityById(1);
+//
+//        LOGGER.info(aviariesModelmapper.toString());
 
 
-         GoodsDao goodsDao = new GoodsDao();
-       goodsDao.getGoodsByType();
+
+
+
+        //<JDBC (Dao, models example)>
+
+//         GoodsDao goodsDao = new GoodsDao();
+//       goodsDao.getGoodsByType();
         //AnimalsDao
 //       AnimalsDao animalsDao = new AnimalsDao();
 
@@ -59,7 +86,7 @@ public class Main {
 
 
 
-    }
+
 
 
 }

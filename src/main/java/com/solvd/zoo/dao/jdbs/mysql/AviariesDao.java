@@ -2,9 +2,15 @@ package com.solvd.zoo.dao.jdbs.mysql;
 
 import com.solvd.zoo.dao.IAviariesDao;
 import com.solvd.zoo.models.AviariesModel;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -114,4 +120,22 @@ public class AviariesDao extends AbstractDao implements IAviariesDao {
         return aviariesModelList;
     }
 
-}
+    @Override
+    public List<AviariesModel> getAllAviariesMyBatis() {
+        SqlSessionFactory sqlSessionFactory = null;
+        try {
+            Reader reader = Resources.getResourceAsReader("myBatisConfig/mybatis_config.xml");
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        SqlSession session = sqlSessionFactory.openSession();
+        IAviariesDao iAviariesDao = session.getMapper(AviariesDao.class);
+        List<AviariesModel> aviariesAll = iAviariesDao.getAllAviariesMyBatis();
+        session.close();
+
+        return aviariesAll;
+
+    }
+
+    }
