@@ -14,6 +14,12 @@ public class AnimalsModel {
     public AnimalsModel() {
     }
 
+    public AnimalsModel(String nickname, String dateOfBirth, List<AnimalsToFoodModel> animalsToFoodModelList) {
+        this.nickname = nickname;
+        this.dateOfBirth = dateOfBirth;
+        this.animalsToFoodModelList = animalsToFoodModelList;
+    }
+
     public AnimalsModel(long id, String nickname, String dateOfBirth, List<AnimalsToFoodModel> animalsToFoodModelList) {
         this.id = id;
         this.nickname = nickname;

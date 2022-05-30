@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.solvd.zoo.dao.IAnimalsDao">
+
+    <resultMap id="animalsResultMap" type="AnimalsModel">
+        <id property="id" column="id" javaType="long"/>
+        <result property="nickname" column="neekname"/>
+        <result property="dateOfBirth" column="date_Of_Birth"/>
+    </resultMap>
+
+    <select id="getEntityById" resultMap="animalsResultMap">
+        SELECT * FROM animals WHERE id = #{id}
+    </select>
+
+    <delete id="removeEntity" parameterType="AnimalsModel">
+        DELETE FROM animals WHERE id = #{id}
+    </delete>
+
+    <insert id="saveEntity" useGeneratedKeys="true" keyProperty="id" parameterType="AnimalsModel">
+        INSERT INTO animals (neekname, date_of_birth) VALUES (#{nickname}, #{dateOfBirth})
+    </insert>
+
+    <update id="updateEntity" parameterType="AnimalsModel">
+        UPDATE animals SET neekname = #{nickname}
+        WHERE id = #{id}
+    </update>
+</mapper>
+
+
+
+
+

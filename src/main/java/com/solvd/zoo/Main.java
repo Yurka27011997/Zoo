@@ -1,5 +1,6 @@
 package com.solvd.zoo;
 
+import com.solvd.zoo.dao.IAnimalsDao;
 import com.solvd.zoo.dao.IAviariesDao;
 import com.solvd.zoo.dao.jdbs.mysql.*;
 import com.solvd.zoo.models.AnimalsModel;
@@ -19,23 +20,15 @@ import java.io.Reader;
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) throws Exception{
-        MyBatisSQLFactory factory = MyBatisSQLFactory.newInstance("myBatisConfig/mybatis_config.xml");
-        SqlSessionFactory sessionFactory = factory.getFactory();
-        try (SqlSession session = sessionFactory.openSession()){
-            IAviariesDao mapper = session.getMapper(IAviariesDao.class);
-            AviariesModel aviariesModel = mapper.getEntityById(1);
-            LOGGER.info(aviariesModel);
-        }
-        }
+
+    public static void main(String[] args) {
+
+
 //
 //        AviariesDao aviariesmapper = session.getMapper(AviariesDao.class);
 //        AviariesModel aviariesModelmapper = aviariesmapper.getEntityById(1);
 //
 //        LOGGER.info(aviariesModelmapper.toString());
-
-
-
 
 
         //<JDBC (Dao, models example)>
@@ -45,8 +38,8 @@ public class Main {
         //AnimalsDao
 //       AnimalsDao animalsDao = new AnimalsDao();
 
-      // AnimalsModel animalsModelGet = animalsDao.getEntityById(1);
-      //  LOGGER.info(animalsModelGet.toString());
+        // AnimalsModel animalsModelGet = animalsDao.getEntityById(1);
+        //  LOGGER.info(animalsModelGet.toString());
 //        animalsDao.getAllAnimals();
 
 
@@ -84,9 +77,5 @@ public class Main {
 //        employeesDao.updateEntity(employeesModelUpdate);
 
 
-
-
-
-
-
+    }
 }
